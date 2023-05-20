@@ -32,8 +32,8 @@ app.add_middleware(
 # redirect to the docs
 @app.get("/", tags=["Docs"])
 async def redirect_docs():
-    return RedirectResponse("http://localhost:8000/docs")
-    
+    #return RedirectResponse("http://localhost:8000/docs")
+    return RedirectResponse("https://random-number-generator-8ziv.onrender.com")
 @app.get("/getRequestId", tags=["GET Request Id"])
 async def get_request_id():
     alchemy_url = "https://polygon-mumbai.g.alchemy.com/v2/otDAa-dr9OXd2WCnsq8_UEiL7tL7cSv7"
