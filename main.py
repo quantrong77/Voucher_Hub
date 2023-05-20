@@ -13,7 +13,7 @@ from typing import Dict
 import json
 import time
 
-import uvicorn
+# import uvicorn
 
 app = FastAPI(title="Random Number Generator for VoucherHub: Hà-Trọng-Hiếu")
 
@@ -33,7 +33,8 @@ app.add_middleware(
 @app.get("/", tags=["Docs"])
 async def redirect_docs():
     #return RedirectResponse("http://localhost:8000/docs")
-    return RedirectResponse("https://random-number-generator-8ziv.onrender.com")
+    return RedirectResponse("https://random-number-generator-8ziv.onrender.com/docs")
+
 @app.get("/getRequestId", tags=["GET Request Id"])
 async def get_request_id():
     alchemy_url = "https://polygon-mumbai.g.alchemy.com/v2/otDAa-dr9OXd2WCnsq8_UEiL7tL7cSv7"
@@ -135,3 +136,6 @@ async def get_open_api_endpoint():
         description="This is the auto-generated OpenAPI schema for the API",
         routes=app.routes
     )
+    
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="0.0.0.0", port=8000)
