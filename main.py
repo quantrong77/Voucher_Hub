@@ -110,13 +110,16 @@ async def get_ramdom_number(requestId: int):
             break
     if requests[0]:
         random_number = requests[1][0]
-        link = 'https://mumbai.polygonscan.com/tx/{w3.to_hex(tx_hash)}'
+        #link = f'https://mumbai.polygonscan.com/tx/{w3.to_hex(tx_hash)}'
+        link = f'https://mumbai.polygonscan.com/tx/{w3.toHex(requests[1][1])}'
+        
         data = {
             "randomNum": str(random_number),
             "mappingNum": random_number % 100 + 1,
             "transectionLog": link
         }
         return data
+    
     raise HTTPException(
         status_code=500, detail="Request Not Processed, Kindly try again later")
 
